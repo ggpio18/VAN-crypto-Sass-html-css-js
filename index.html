@@ -3,102 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoSaaS - Web3 Solutions</title>
+    <title>NFT PicStore - Discover Unique Digital Art</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">CryptoSaaS</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header id="header" class="header">
+        <div class="container">
+            <div class="logo">NFT PicStore</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#cta">Join</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="home">
-            <h1>Welcome to CryptoSaaS</h1>
-            <p>Empowering your crypto journey with cutting-edge Web3 solutions</p>
-            <button id="connect-wallet">Connect Wallet</button>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Discover Unique Digital Art</h1>
+                <p>Explore, collect, and sell extraordinary NFTs in our innovative Web3 marketplace.</p>
+                <button class="cta-button">Start Exploring</button>
+            </div>
         </section>
 
-        <section id="features">
-            <h2>Our Features</h2>
-            <div class="feature-grid">
-                <div class="feature">
-                    <h3>Decentralized Storage</h3>
-                    <p>Secure and distributed storage for your crypto assets</p>
-                </div>
-                <div class="feature">
-                    <h3>Smart Contract Integration</h3>
-                    <p>Seamlessly integrate and manage smart contracts</p>
-                </div>
-                <div class="feature">
-                    <h3>DeFi Tools</h3>
-                    <p>Access powerful decentralized finance tools</p>
-                </div>
-                <div class="feature">
-                    <h3>NFT Marketplace</h3>
-                    <p>Create, buy, and sell NFTs with ease</p>
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose Us?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon">🎨</div>
+                        <h3>Unique Artworks</h3>
+                        <p>Discover one-of-a-kind digital masterpieces from talented artists worldwide.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h3>Instant Transactions</h3>
+                        <p>Buy and sell NFTs with lightning-fast blockchain technology.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🛒</div>
+                        <h3>Easy Marketplace</h3>
+                        <p>User-friendly interface for seamless browsing and trading of NFTs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👛</div>
+                        <h3>Secure Wallet</h3>
+                        <p>Keep your digital assets safe with our state-of-the-art wallet integration.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="pricing">
-            <h2>Pricing Plans</h2>
-            <div class="pricing-grid">
-                <div class="plan">
-                    <h3>Basic</h3>
-                    <p class="price">0.1 ETH/month</p>
-                    <ul>
-                        <li>Basic Web3 integration</li>
-                        <li>1GB decentralized storage</li>
-                        <li>Community support</li>
-                    </ul>
-                    <button class="select-plan" data-plan="basic">Select Plan</button>
-                </div>
-                <div class="plan">
-                    <h3>Pro</h3>
-                    <p class="price">0.3 ETH/month</p>
-                    <ul>
-                        <li>Advanced Web3 integration</li>
-                        <li>10GB decentralized storage</li>
-                        <li>Priority support</li>
-                        <li>DeFi tools access</li>
-                    </ul>
-                    <button class="select-plan" data-plan="pro">Select Plan</button>
-                </div>
-                <div class="plan">
-                    <h3>Enterprise</h3>
-                    <p class="price">Custom</p>
-                    <ul>
-                        <li>Full Web3 ecosystem</li>
-                        <li>Unlimited decentralized storage</li>
-                        <li>24/7 dedicated support</li>
-                        <li>Custom smart contract development</li>
-                    </ul>
-                    <button class="select-plan" data-plan="enterprise">Contact Us</button>
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2>Featured Artworks</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/nft1/400/300" alt="NFT Artwork 1">
+                        <div class="artwork-info">
+                            <h3>Artwork Title 1</h3>
+                            <p>By Artist Name</p>
+                            <div class="price-buy">
+                                <span class="price">0.5 ETH</span>
+                                <button class="buy-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/nft2/400/300" alt="NFT Artwork 2">
+                        <div class="artwork-info">
+                            <h3>Artwork Title 2</h3>
+                            <p>By Artist Name</p>
+                            <div class="price-buy">
+                                <span class="price">0.7 ETH</span>
+                                <button class="buy-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/nft3/400/300" alt="NFT Artwork 3">
+                        <div class="artwork-info">
+                            <h3>Artwork Title 3</h3>
+                            <p>By Artist Name</p>
+                            <div class="price-buy">
+                                <span class="price">0.3 ETH</span>
+                                <button class="buy-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/nft4/400/300" alt="NFT Artwork 4">
+                        <div class="artwork-info">
+                            <h3>Artwork Title 4</h3>
+                            <p>By Artist Name</p>
+                            <div class="price-buy">
+                                <span class="price">0.6 ETH</span>
+                                <button class="buy-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/nft5/400/300" alt="NFT Artwork 5">
+                        <div class="artwork-info">
+                            <h3>Artwork Title 5</h3>
+                            <p>By Artist Name</p>
+                            <div class="price-buy">
+                                <span class="price">0.4 ETH</span>
+                                <button class="buy-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/nft6/400/300" alt="NFT Artwork 6">
+                        <div class="artwork-info">
+                            <h3>Artwork Title 6</h3>
+                            <p>By Artist Name</p>
+                            <div class="price-buy">
+                                <span class="price">0.8 ETH</span>
+                                <button class="buy-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+        <section id="cta" class="cta">
+            <div class="container">
+                <h2>Join Our NFT Community</h2>
+                <p>Stay updated with the latest drops, exclusive offers, and community events.</p>
+                <form id="subscribe-form" class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="subscribe-button">Subscribe</button>
+                </form>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 CryptoSaaS. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 NFT PicStore. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

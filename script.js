@@ -1,39 +1,94 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const connectWalletBtn = document.getElementById('connect-wallet');
-    const selectPlanBtns = document.querySelectorAll('.select-plan');
-    const contactForm = document.getElementById('contact-form');
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction:  'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
 
-    connectWalletBtn.addEventListener('click', async () => {
-        if (typeof window.ethereum !== 'undefined') {
-            try {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
-                connectWalletBtn.textContent = 'Wallet Connected';
-                connectWalletBtn.disabled = true;
-            } catch (error) {
-                console.error('Failed to connect wallet:', error);
-            }
-        } else {
-            alert('Please install MetaMask or another Web3 wallet to connect.');
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // GSAP ScrollTrigger for animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Header animation
+    gsap.from('#header', {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+    });
+
+    // Hero section animation
+    gsap.from('#hero h1, #hero p, #hero .cta-button', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // Features animation
+    gsap.from('.feature-card', {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: '#features',
+            start: 'top 80%'
         }
     });
 
-    selectPlanBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const plan = btn.getAttribute('data-plan');
-            alert(`You've selected the ${plan} plan. In a real application, this would initiate the payment process.`);
-        });
+    // Gallery animation
+    gsap.from('.gallery-item', {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.8,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: '#gallery',
+            start: 'top 80%'
+        }
     });
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+    // CTA section animation
+    gsap.from('#cta h2, #cta p, #cta .subscribe-form', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: '#cta',
+            start: 'top 80%'
+        }
+    });
 
-        // In a real application, you would send this data to a server
-        console.log('Form submitted:', { name, email, message });
-        alert('Thank you for your message. We will get back to you soon!');
-        contactForm.reset();
+    // Handle form submission
+    const subscribeForm = document.getElementById('subscribe-form');
+    subscribeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.querySelector('input[type="email"]').value;
+        alert(`Thank you for subscribing with email: ${email}`);
+        subscribeForm.reset();
+    });
+
+    // Handle buy button clicks
+    const buyButtons = document.querySelectorAll('.buy-button');
+    buyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('NFT purchase functionality would be implemented here.');
+        });
     });
 });
